@@ -14,6 +14,13 @@ app.use((req, res, next) => {
   next();
 });
 // Rutas de la API
+app.get('/', (req, res) =>{
+  res.send("Bienvenido a la API de Restaurante");
+})
+app.get('/api', async (req, res) =>{
+  const result = await pool.query('SELECT NOW()')
+  res.json(result.rows[0])
+});
 app.use('/api', UserRoutes);
 app.use('/api', CuentaRoutes)
 app.use('/api', PedidoRoutes)

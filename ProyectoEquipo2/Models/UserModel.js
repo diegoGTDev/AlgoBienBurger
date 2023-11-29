@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+const pool = require('../Config/db');
 
 //Create a enum
 const Types = {

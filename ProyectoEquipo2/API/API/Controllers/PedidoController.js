@@ -16,6 +16,19 @@ const PedidoController = {
       res.status(500).json({ error: error.message });
     }
   },
+
+  async Post(req, res){
+    console.log("Estamos en cambiar boletita");
+    const id = req.params.id;
+
+    try {
+      await _pedidoService.Post(id);
+      res.status(201).json({ans: 'OK'});
+    }
+    catch(error){
+      res.status(500).json({error: error.message, message: "CACA"});
+    }
+  }
 };
 
 module.exports = PedidoController;

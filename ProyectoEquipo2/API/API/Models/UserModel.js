@@ -27,6 +27,18 @@ class UserModel {
     return rows[0];
   }
 
+  async iniciarSesion(user){
+    console.info("ESTOY EN USER MODEL, MANDO", user);
+    console.log("EL NOMBRE ES: ", user.username, "PASWOR ES:", user.password)
+    const query = 'SELECT * FROM public.usuario WHERE id_usuario = $1 AND contrasenia = $2;'
+    try{
+      const { rows } = await pool.query(query, [user.username, user.password]);
+      console.log("RESPUESTA DEL SERVIDOR: ", rows[0])
+      return rows[0];
+    }catch(error){
+      console.error("ERROR API: ", error)
+    }
+  }
   async createUser(user) {
     const {userNameInput, nameInput, emailInput, passwordInput, typeInput} = user;
     var myType = ((typeInput == Types.administrador)) ? true : false;

@@ -10,6 +10,7 @@ router.get('/user/:id', UserController.getUserById);
 
 // Crear una nueva tarea
 router.post('/user', UserController.createUser);
+router.post('/user/login', UserController.iniciarSesion);
 
 // Actualizar una tarea por ID
 router.put('/user/:id', UserController.updateUser);

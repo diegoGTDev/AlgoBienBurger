@@ -31,6 +31,17 @@ class PedidoService{
             console.error("ERROR Pedido", error);
         }
     }
+    async Post(id){
+        try{
+            const query = `UPDATE public.cuenta SET bol_pago = 'true' WHERE id_cuenta = $1`
+            const parameters = [id];
+
+            const {rows} = await pool.query(query, parameters);
+            return rows
+        } catch(error){
+            console.error("ERROR ", error);
+        }
+    }
 }
 
 module.exports = PedidoService;

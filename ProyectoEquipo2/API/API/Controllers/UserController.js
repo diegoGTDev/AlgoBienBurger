@@ -26,7 +26,22 @@ const UserController = {
       res.status(500).json({ error: error.message });
     }
   },
-
+  async iniciarSesion(req, res){
+    // console.log("Iniciamos sesion: ", req);
+    const {username, password} = req.body;
+    console.log("Red body: ", "User: ", username, " Password:", password);
+    const user = {username, password};
+    console.log("USER DENTRO DE CONTROLLER: ", user);
+    try{
+      console.log("USER:", user);
+      const ResUser = await userModel.iniciarSesion(user);
+      console.log("Response: ", ResUser);
+      res.status(201).json(ResUser)
+    }
+    catch(error){
+      res.status(500).json({error: error.message});
+    }
+  },
   async createUser(req, res) {
     console.log("Estamos en create User");
     console.info("Request: ", req.body);

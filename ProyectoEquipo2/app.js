@@ -3,7 +3,7 @@ const app = express();
 const UserRoutes = require('./Routes/UserRoutes');
 const CuentaRoutes = require('./Routes/CuentaRoutes')
 const PedidoRoutes = require('./Routes/PedidoRoutes')
-const pool = require('Config/db');
+const pool = require('./Config/db');
 
 // Middleware para analizar solicitudes JSON
 app.use(express.json());

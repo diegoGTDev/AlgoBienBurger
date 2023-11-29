@@ -1,4 +1,4 @@
-const pool = require('/Config/db');
+const pool = require('./../Config/db');
 const MenuService = require('./MenuService');
 
 const _MenuService = new MenuService();

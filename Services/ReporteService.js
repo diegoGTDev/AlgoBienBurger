@@ -1,10 +1,8 @@
 const pool = require("./../Config/db");
-<<<<<<< HEAD
 
-=======
 const EmailService = require("./EmailService");
 const emailService = new EmailService();
->>>>>>> 2171e633bca89089c5c74201171828240e3b6306
+
 class ReporteService{
     constrcutor(){
 

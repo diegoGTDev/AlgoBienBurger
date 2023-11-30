@@ -18,7 +18,6 @@ class UserModel {
     }catch(error){
       console.error("Error: ", error);
     }
-    return rows;
   }
 
   async getUserById(id) {

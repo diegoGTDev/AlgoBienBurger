@@ -6,7 +6,7 @@ const CuentaController = {
  
 
   async createCuenta(req, res) {
-    console.log("Estamos en create cuent");
+    console.log("Estamos en create cuenta");
     console.info("Request: ", req.body);
     const cuenta = req.body;
     try {

@@ -19,7 +19,16 @@ class ReporteController{
             res.status(500).json({error: error.message});
         }
     }
-    
+    async Post(req, res)
+    {
+        const data = req.body;
+        // try{
+        //     const response = await _ReporteService.PostReporte(data);
+        //     res.status(201).json(response);
+        // }catch(error){
+        //     res.status(500).json({error: error.message});
+        // }
+    }
 }
 
 module.exports = new ReporteController();

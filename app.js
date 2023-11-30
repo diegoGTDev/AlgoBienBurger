@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
+const ReporteRoutes = require('./Routes/ReporteRoutes');
 const UserRoutes = require('./Routes/UserRoutes');
 const CuentaRoutes = require('./Routes/CuentaRoutes')
 const PedidoRoutes = require('./Routes/PedidoRoutes')
-const pool = require('./Config/db');
+const pool = require('./config/db');
 
 // Middleware para analizar solicitudes JSON
 app.use(express.json());
@@ -14,16 +15,10 @@ app.use((req, res, next) => {
   next();
 });
 // Rutas de la API
-app.get('/', (req, res) =>{
-  res.send("Bienvenido a la API de Restaurante");
-})
-app.get('/api', async (req, res) =>{
-  const result = await pool.query('SELECT NOW()')
-  res.json(result.rows[0])
-});
 app.use('/api', UserRoutes);
 app.use('/api', CuentaRoutes)
 app.use('/api', PedidoRoutes)
+app.use('/api', ReporteRoutes)
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
